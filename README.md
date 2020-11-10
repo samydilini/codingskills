@@ -1,5 +1,6 @@
-Test Coding Skills
-The below describes a problem statement, make sure to read all of the instructions in this readme before you start.
+#Test Coding Skills
+
+### The below describes a problem statement, make sure to read all of the instructions in this readme before you start.
 
 Business Requirement:
 Company A has acquired a Company B, A and B are selling some common set of products, sourced from same or different suppliers. 
