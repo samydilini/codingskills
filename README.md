@@ -24,7 +24,7 @@ So, you have following entities to play with:
 - Catalog B
 - Products of Catalog A
 - Products of Catalog B
- -Merged Catalog C
+- Merged Catalog C
 
 You need to produce code in your preferred language which can demonstrate following:
 
