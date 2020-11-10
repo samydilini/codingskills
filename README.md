@@ -40,10 +40,11 @@ You need to produce code in your preferred language which can demonstrate follow
 ### Data Example: Feel free to create your own
 
 Products for A
-SKU	Description		
-1	HammerA		
-2	ShovelA		
-..	..		
+| SKU |	Description |
+| --- | ----------- |
+| 1   |	HammerA     |		
+| 2   |	ShovelA     |		
+| ..  |	..          |	
 
 Products for B
 | SKU |	Description |
@@ -53,16 +54,19 @@ Products for B
 | ..  |	..          |		
 
 Supplier
-ID	Name			
-1	Etti			
-2	Jerry			
-3	Vive			
-	
+| ID |	Name        |
+| --- | ----------- |
+| 1   |	Etti        |		
+| 2   |	Jerry       |		
+| ..  |	..          |
 
 SupplierProductBarCodes
-ID 	SKU 	Barcode
-1	1	1234567
-2	1	5678901
+| ID |	SKU         | Barcode	|
+| --- | ----------- | -------	|
+| 1   |	1           |	1234567	|	
+| 2   |	1           |	5678901	|	
+| ..  |	..          |		|	
+
 
 ### Deliverables.
 - Application should be able to accept above data from text files as input and must produce a merged catalog in a text file as an output.
