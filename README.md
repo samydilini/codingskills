@@ -20,11 +20,11 @@ These products have associated suppliers, each supplier provides some barcodes f
 
 So, you have following entities to play with:
 
-Catalog A
-Catalog B
-Products of Catalog A
-Products of Catalog B
-Merged Catalog - C
+- Catalog A
+- Catalog B
+- Products of Catalog A
+- Products of Catalog B
+ -Merged Catalog C
 
 You need to produce code in your preferred language which can demonstrate following:
 
