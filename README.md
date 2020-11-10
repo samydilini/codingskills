@@ -70,7 +70,8 @@ SupplierProductBarCodes
 
 ### Deliverables.
 - Application should be able to accept above data from text files as input and must produce a merged catalog in a text file as an output.
+- Proving your code works via unit testing is highly encouraged.
 - Spend as little or as much time as you like ⌚
 - The code you produce can be in any language ⭐
 - The output of the efforts ❗ must be committed back into a Public Repo in Github and the URL shared back for review. 
-- Proving your code works via unit testing is highly encouraged.
+
