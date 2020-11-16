@@ -23,7 +23,7 @@ The business provided the following information that may help in identifying a m
 
 So, you have following entities to play with:
 
-<img src="../../entity_diagram.png" width="800px" height="auto">
+<img src="./entity_diagram.png" width="800px" height="auto">
 
 
 
