@@ -38,39 +38,17 @@ You need to produce code in your preferred language which can demonstrate follow
 - An existing product in Catalog B got new supplier with set of barcodes
  
 
-### Data Example: Feel free to create your own
-
-Products for A
-| SKU |	Description |
-| --- | ----------- |
-| 1   |	HammerA     |		
-| 2   |	ShovelA     |		
-| ..  |	..          |	
-
-Products for B
-| SKU |	Description |
-| --- | ----------- |
-| 1   |	HammerB     |		
-| 2   |	ShovelB     |		
-| ..  |	..          |		
-
-Supplier
-| ID |	Name        |
-| --- | ----------- |
-| 1   |	Etti        |		
-| 2   |	Jerry       |		
-| ..  |	..          |
-
-SupplierProductBarCodes
-| ID |	SKU         | Barcode	|
-| --- | ----------- | -------	|
-| 1   |	1           |	1234567	|	
-| 2   |	1           |	5678901	|	
-| ..  |	..          |		|	
-
+### Sample Data 
+Please refer input folder for following csvs:
+1. catalogA.csv - Products for Comapny A
+2. catalogB.csv - Products for Comapny B
+3. suppliersA.csv - List of Supplers for Company A
+4. suppliersB.csv - List of Supplers for Company B
+5. barcodesA.csv - Product barcodes provided by supplier for company A
+6. barcodesB.csv - Product barcodes provided by supplier for company B
 
 ### Deliverables.
-- Application should be able to accept above data from text files as input and must produce a merged catalog in a text file as an output.
+- Application should be able to accept above data as csv files from input folder and must produce a merged catalog as a csv file in output folder.
 - Proving your code works via unit testing is highly encouraged.
 - Spend as little or as much time as you like ⌚
 - The code you produce can be in any language ⭐
