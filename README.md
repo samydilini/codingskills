@@ -35,7 +35,7 @@ You need to produce code in your preferred language which can demonstrate follow
 ### BAU mode
 - A new product added in Catalog A
 - An existing product removed from Catalog A
-- An existing product in Catalog B got new supplier
+- An existing product in Catalog B got new supplier with set of barcodes
  
 
 ### Data Example: Feel free to create your own
