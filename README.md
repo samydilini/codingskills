@@ -1,30 +1,30 @@
-# Test Coding Skills
+# Coding Skills Challenge
 
-### The below describes a problem statement, make sure to read all of the instructions in this readme before you start.
+### The below describes a problem statement, make sure to read all the instructions in this readme before you start.
 
 ### Business Requirement:
 
-- Company A has acquired a Company B, A and B are selling some common set of products, sourced from same or different suppliers. 
-- Business wants to create a common catalog from both company product catalogs.
+- Company A have acquired Company B, A and B sell some common products, sourced from suppliers (Sometimes the same supplier, sometimes a different one). 
+- The business wants to consolidate the product catalog into one superset (merged catalog).
 
 ### There are possibilities like:
 
-- Company A and B could have conflicting product codes.
+- Company A and B could have conflicting product codes (SKUs).
 - Product codes might be same, but they are different products.
 - Product codes are different, but they are same product.
 - You should not be duplicating product records in merged catalog.
-- Merge catalog must be aware that a product sourced from Company A or B.
+- Product on merged catalog must have infromation about the comapny it belongs to originally.  
 
-Business provided an information that may help in identifying a matching product:
-These products have associated suppliers, each supplier provides some barcodes for a product, it means one product may have many suppliers and a supplier will have many bar codes for a product. Even If a single supplier's barcode matches for one product of company A with Company B then we can consider that those products are same.
+The business provided the following information that may help in identifying a matching product:
+- Products have associated suppliers, each supplier provides 1 or many barcodes for a product, 
+- A product may have many suppliers,
+- If any supplier barcode matches for one product of company A with Company B then we can consider that those products as the same.
+
 
 So, you have following entities to play with:
 
-- Catalog A
-- Catalog B
-- Products of Catalog A
-- Products of Catalog B
-- Merged Catalog C
+
+
 
 You need to produce code in your preferred language which can demonstrate following:
 
