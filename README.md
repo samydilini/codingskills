@@ -23,7 +23,7 @@ The business provided the following information that may help in identifying a m
 
 So, you have following entities to play with:
 
-
+<img src="./entity_diagram.png">
 
 
 You need to produce code in your preferred language which can demonstrate following:
