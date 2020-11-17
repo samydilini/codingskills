@@ -46,7 +46,7 @@ Please refer input folder for following CSVs:
 1. [suppliersB.csv](input/suppliersB.csv) - List of Suppliers for Company B
 1. [barcodesA.csv](input/barcodesA.csv) - Product barcodes provided by supplier for company A
 1. [barcodesB.csv](input/barcodesB.csv) - Product barcodes provided by supplier for company B
-1. [result_output.csv](output/sample_output.csv) - The correct results based on the above sample data
+1. [result_output.csv](output/result_output.csv) - The correct results based on the above sample data
 
 
 ### Deliverables.
