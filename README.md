@@ -13,7 +13,7 @@
 - Product codes might be same, but they are different products.
 - Product codes are different, but they are same product.
 - You should not be duplicating product records in merged catalog.
-- Product on merged catalog must have infromation about the comapny it belongs to originally.  
+- Product on merged catalog must have information about the company it belongs to originally.  
 
 The business provided the following information that may help in identifying a matching product:
 - Products have associated suppliers, each supplier provides 1 or many barcodes for a product, 
@@ -40,10 +40,10 @@ You need to produce code in your preferred language which can demonstrate follow
 
 ### Sample Data 
 Please refer input folder for following csvs:
-1. catalogA.csv - Products for Comapny A
-2. catalogB.csv - Products for Comapny B
-3. suppliersA.csv - List of Supplers for Company A
-4. suppliersB.csv - List of Supplers for Company B
+1. catalogA.csv - Products for Company A
+2. catalogB.csv - Products for Company B
+3. suppliersA.csv - List of Suppliers for Company A
+4. suppliersB.csv - List of Suppliers for Company B
 5. barcodesA.csv - Product barcodes provided by supplier for company A
 6. barcodesB.csv - Product barcodes provided by supplier for company B
 
