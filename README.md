@@ -39,13 +39,15 @@ You need to produce code in your preferred language which can demonstrate follow
  
 
 ### Sample Data 
-Please refer input folder for following csvs:
-1. catalogA.csv - Products for Company A
-2. catalogB.csv - Products for Company B
-3. suppliersA.csv - List of Suppliers for Company A
-4. suppliersB.csv - List of Suppliers for Company B
-5. barcodesA.csv - Product barcodes provided by supplier for company A
-6. barcodesB.csv - Product barcodes provided by supplier for company B
+Please refer input folder for following CSVs:
+1. [catalogA.csv](input/catalogA.csv) - Products for Company A
+1. [catalogB.csv](input/catalogB.csv) - Products for Company B
+1. [suppliersA.csv](input/suppliersA.csv) - List of Suppliers for Company A
+1. [suppliersB.csv](input/suppliersB.csv) - List of Suppliers for Company B
+1. [barcodesA.csv](input/barcodesA.csv) - Product barcodes provided by supplier for company A
+1. [barcodesB.csv](input/barcodesB.csv) - Product barcodes provided by supplier for company B
+1. [result_output.csv](output/sample_output.csv) - The correct results based on the above sample data
+
 
 ### Deliverables.
 - Application should be able to accept above data as csv files from input folder and must produce a merged catalog as a csv file in output folder.
