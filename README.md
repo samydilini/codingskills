@@ -5,7 +5,7 @@
 ### Business Requirement:
 
 - Company A have acquired Company B, A and B sell some common products, sourced from suppliers (Sometimes the same supplier, sometimes a different one). 
-- The business wants to consolidate the product catalog into one superset (merged catalog).
+- The business wants to consolidate the product catalog into one superset (merged catalog). 
 
 ### There are possibilities like:
 
@@ -55,4 +55,4 @@ Please refer input folder for following CSVs:
 - Spend as little or as much time as you like ⌚
 - The code you produce can be in any language ⭐
 - The output of the efforts ❗ must be committed back into a Public Repo in Github and the URL shared back for review. 
-
+- Document instructions on how to install and run your solution in the README.
