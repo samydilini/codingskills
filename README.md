@@ -31,11 +31,6 @@ You need to produce code in your preferred language which can demonstrate follow
 
 ### Initial load
 - Mega merge: All products from both companies should get merge into a common catalog
-
-### BAU mode
-- A new product added in Catalog A
-- An existing product removed from Catalog A
-- An existing product in Catalog B got new supplier with set of barcodes
  
 
 ### Sample Data 
