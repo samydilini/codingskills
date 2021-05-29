@@ -19,7 +19,5 @@ public class Record {
     public List<String[]> getRows() {
         return rows;
     }
-    
-    
 
 }
