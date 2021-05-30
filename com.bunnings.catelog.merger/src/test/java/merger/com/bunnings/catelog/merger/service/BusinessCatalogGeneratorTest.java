@@ -1,5 +1,6 @@
 package merger.com.bunnings.catelog.merger.service;
 
+import static merger.com.bunnings.catelog.merger.service.BusinessCatalogGenerator.SRC_MAIN_RESOURCES;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.when;
@@ -7,7 +8,6 @@ import static org.mockito.Mockito.when;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
@@ -29,7 +29,6 @@ public class BusinessCatalogGeneratorTest {
 
     @Mock
     private FileReaderService fileReaderService;
-    @InjectMocks
     private BusinessCatalogGenerator bussinssCatalogGenerator;
 
     @Before
@@ -78,7 +77,7 @@ public class BusinessCatalogGeneratorTest {
         catalogRows.add(row2);
         when(catalogRecord.getRows()).thenReturn(catalogRows);
 
-        when(fileReaderService.readFile(PropertyReaderService.CATELOG + companyName))
+        when(fileReaderService.readFile(SRC_MAIN_RESOURCES + PropertyReaderService.CATELOG + companyName))
             .thenReturn(Optional.of(catalogRecord));
 
         Record barcodeRecord = Mockito.mock(Record.class);
@@ -93,7 +92,7 @@ public class BusinessCatalogGeneratorTest {
         barcodeRows.add(barRow3);
         when(barcodeRecord.getRows()).thenReturn(barcodeRows);
 
-        when(fileReaderService.readFile(PropertyReaderService.BARCODES + companyName))
+        when(fileReaderService.readFile(SRC_MAIN_RESOURCES + PropertyReaderService.BARCODES + companyName))
             .thenReturn(Optional.of(barcodeRecord));
 
         Record supplierRecord = Mockito.mock(Record.class);
@@ -105,7 +104,7 @@ public class BusinessCatalogGeneratorTest {
         String[] supplierRow2 = {"2", "Lill"};
         supplierRows.add(supplierRow2);
         when(supplierRecord.getRows()).thenReturn(supplierRows);
-        when(fileReaderService.readFile(PropertyReaderService.SUPPLIERS + companyName))
+        when(fileReaderService.readFile(SRC_MAIN_RESOURCES + PropertyReaderService.SUPPLIERS + companyName))
             .thenReturn(Optional.of(supplierRecord));
 
         List<String> fileNames = Arrays.asList(PropertyReaderService.CATELOG + companyName,
@@ -116,9 +115,9 @@ public class BusinessCatalogGeneratorTest {
         assertEquals(companyName, businessCatalog.getCompanyName());
 
         Catalog catalog = businessCatalog.findCatalogById("1111").get();
-        assertEquals(2,catalog.getSupplierBarCodes().size());
-        assertEquals("Phill",catalog.getSupplierBarCodes().get(0).getSupplier().getName());
-        assertEquals("Phill",catalog.getSupplierBarCodes().get(1).getSupplier().getName());
+        assertEquals(2, catalog.getSupplierBarCodes().size());
+        assertEquals("Phill", catalog.getSupplierBarCodes().get(0).getSupplier().getName());
+        assertEquals("Phill", catalog.getSupplierBarCodes().get(1).getSupplier().getName());
     }
 
 }

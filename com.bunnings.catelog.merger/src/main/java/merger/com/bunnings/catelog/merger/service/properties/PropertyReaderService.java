@@ -29,6 +29,17 @@ public class PropertyReaderService {
             COMPANY_AQQUIRED + PREFIX + CATELOG, COMPANY_AQQUIRED + PREFIX + BARCODES,
             COMPANY_AQQUIRED + PREFIX + SUPPLIERS);
 
+    private static PropertyReaderService propertyReaderService = null;
+
+    private PropertyReaderService(){}
+
+    public static  PropertyReaderService getPropertyReaderServiceInstance() {
+        if(propertyReaderService == null) {
+            propertyReaderService = new PropertyReaderService();
+        }
+        return propertyReaderService;
+    }
+
     public Map<String, List<String>> read() throws MergerException {
         Map<String, List<String>> files = new HashMap<>();
         Properties prop = new Properties();

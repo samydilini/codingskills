@@ -24,12 +24,12 @@ import merger.com.bunnings.catelog.merger.exceptins.MergerException;
 @PowerMockIgnore("jdk.internal.reflect.*")
 @SuppressStaticInitializationFor("merger.com.bunnings.catelog.merger.service.properties.PropertyReaderService")
 public class PropertyReaderServiceTest {
-    PropertyReaderService propertyReaderService = new PropertyReaderService();
+    PropertyReaderService propertyReaderService;
 
     @Before
     public void setUp() {
         PowerMockito.mockStatic(Logger.class);
-
+        propertyReaderService = PropertyReaderService.getPropertyReaderServiceInstance();
     }
 
     @Test(expected = MergerException.class)

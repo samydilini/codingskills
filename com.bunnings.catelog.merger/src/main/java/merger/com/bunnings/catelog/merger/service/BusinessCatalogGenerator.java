@@ -26,6 +26,7 @@ import java.util.stream.Collectors;
 public class BusinessCatalogGenerator {
 
     private static final Logger LOGGER = Logger.getLogger(BusinessCatalogGenerator.class.getName());
+    public static final String SRC_MAIN_RESOURCES = "src/main/resources/";
     private FileReaderService fileReaderService;
 
     public BusinessCatalogGenerator() {
@@ -42,7 +43,7 @@ public class BusinessCatalogGenerator {
         List<Supplier> unsortedSuppliers = null;
 
         for (String fileName : fileNames) {
-            Record records = readFileRecords(fileName);
+            Record records = readFileRecords(SRC_MAIN_RESOURCES + fileName);
             String[] headers = records.getHeaders();
             List<String[]> rows = records.getRows();
             if (fileName.equalsIgnoreCase(PropertyReaderService.CATELOG + companyName)) {
