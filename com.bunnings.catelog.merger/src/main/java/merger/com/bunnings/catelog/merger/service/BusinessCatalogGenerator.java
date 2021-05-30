@@ -81,13 +81,9 @@ public class BusinessCatalogGenerator {
             String supplierId = barcode.getSupplierId();
 
             Optional<Catalog> catalogOption = unSortedCatelogs.stream()
-                .filter(catalog -> {
-                    return catalog.getSku() == catalogSku;
-                }).findFirst();
+                .filter(catalog -> catalog.getSku().equalsIgnoreCase(catalogSku)).findFirst();
             Optional<Supplier> supplierOption = unsortedSuppliers.stream()
-                .filter(supplier -> {
-                    return supplier.getId() == supplierId;
-                }).findFirst();
+                .filter(supplier -> supplier.getId().equalsIgnoreCase(supplierId)).findFirst();
             if (catalogOption.isPresent() && supplierOption.isPresent()) {
                 Catalog catalog = catalogOption.get();
                 Supplier supplier = supplierOption.get();
@@ -97,7 +93,7 @@ public class BusinessCatalogGenerator {
             } else {
                 LOGGER
                     .log(Level.WARNING, "Sku \"" + catalogSku + "\" or supplier id \"" + supplierId + "\" from barcode "
-                        + "file was not found in one of the other files");
+                        + "file was not found in one of the other files for company \"" + companyName);
             }
         });
         return new BusinessCatalog(companyName, unSortedCatelogs);

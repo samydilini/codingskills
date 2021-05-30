@@ -7,10 +7,12 @@ import merger.com.bunnings.catelog.merger.service.properties.PropertyReaderServi
 import merger.com.bunnings.catelog.merger.viewmodel.CatalogViewModel;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public class MergerService {
@@ -40,7 +42,6 @@ public class MergerService {
 
             List<CatalogViewModel> catelogViewModels = getCatalogViewModels(motherCompanyCatalog, motherCompanyName,
                 aqquringCompanyCatalog, acquiredCompanyName);
-            System.out.println(catelogViewModels.size());
             return catelogViewModels;
         } catch (MergerException e) {
             e.printStackTrace();
@@ -69,18 +70,21 @@ public class MergerService {
             .filter(aObject -> !motherCompanySupplierBarcodes.contains(aObject))
             .collect(Collectors.toList());
 
-        List<CatalogViewModel> catalogViewModels = new ArrayList<>();
+        Set<CatalogViewModel> catalogViewModels = new HashSet<>();
         catalogViewModels.addAll(uniqueMotherCompany.stream()
             .map(mother -> new CatalogViewModel(motherCompanyName,
-                mother.getCatalog().getDescription(), mother.getCatalog().getSku())).collect(Collectors.toList()));
+                mother.getCatalog().getDescription(), mother.getCatalog().getSku())).collect(Collectors.toSet()));
 
         catalogViewModels.addAll(commons.stream()
             .map(mother -> new CatalogViewModel(motherCompanyName,
-                mother.getCatalog().getDescription(), mother.getCatalog().getSku())).collect(Collectors.toList()));
+                mother.getCatalog().getDescription(), mother.getCatalog().getSku())).collect(Collectors.toSet()));
         catalogViewModels.addAll(uniqueAcquired.stream()
             .map(mother -> new CatalogViewModel(acquiredCompanyName,
-                mother.getCatalog().getDescription(), mother.getCatalog().getSku())).collect(Collectors.toList()));
-        return catalogViewModels;
+                mother.getCatalog().getDescription(), mother.getCatalog().getSku())).collect(Collectors.toSet()));
+        ArrayList<CatalogViewModel> viewModelList = new ArrayList<CatalogViewModel>();
+        viewModelList.addAll(catalogViewModels);
+
+        return viewModelList;
     }
 
     private BusinessCatalog getBusinessCatalog(Entry<String, List<String>> next) throws MergerException {
