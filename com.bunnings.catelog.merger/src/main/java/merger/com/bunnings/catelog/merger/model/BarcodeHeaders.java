@@ -3,7 +3,7 @@ package merger.com.bunnings.catelog.merger.model;
 public enum BarcodeHeaders {
     SKU("SKU"),
     SUPPLIER_ID("SupplierID"),
-    BARCODE("BarCode");
+    BARCODE("Barcode");
 
     private String header;
 

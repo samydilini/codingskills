@@ -26,11 +26,20 @@ import java.util.stream.Collectors;
 public class BusinessCatalogGenerator {
 
     private static final Logger LOGGER = Logger.getLogger(BusinessCatalogGenerator.class.getName());
-    public static final String SRC_MAIN_RESOURCES = "src/main/resources/";
+    public static final String SRC_MAIN_RESOURCES = "/";
+    public static final String CSV = ".csv";
     private FileReaderService fileReaderService;
+    private static BusinessCatalogGenerator businessCatalogGenerator = null;
 
-    public BusinessCatalogGenerator() {
+    private BusinessCatalogGenerator() {
         fileReaderService = FileReaderService.getFileReaderServiceInstance();
+    }
+
+    public static BusinessCatalogGenerator getBusinessCatalogGenerator() {
+        if (businessCatalogGenerator == null) {
+            businessCatalogGenerator = new BusinessCatalogGenerator();
+        }
+        return businessCatalogGenerator;
     }
 
     public BusinessCatalogGenerator(FileReaderService fileReaderService) {
@@ -46,15 +55,15 @@ public class BusinessCatalogGenerator {
             Record records = readFileRecords(SRC_MAIN_RESOURCES + fileName);
             String[] headers = records.getHeaders();
             List<String[]> rows = records.getRows();
-            if (fileName.equalsIgnoreCase(PropertyReaderService.CATELOG + companyName)) {
+            if (fileName.equalsIgnoreCase(PropertyReaderService.CATELOG + companyName + CSV)) {
                 unSortedCatelogs = generateUnsortedCatalogs(headers, rows);
-            } else if (fileName.equalsIgnoreCase(PropertyReaderService.BARCODES + companyName)) {
+            } else if (fileName.equalsIgnoreCase(PropertyReaderService.BARCODES + companyName + CSV)) {
                 unSortedBarcodes = generateUnsortedBarcodes(headers, rows);
 
-            } else if (fileName.equalsIgnoreCase(PropertyReaderService.SUPPLIERS + companyName)) {
+            } else if (fileName.equalsIgnoreCase(PropertyReaderService.SUPPLIERS + companyName + CSV)) {
                 unsortedSuppliers = generateUnsortedSuppliers(headers, rows);
             } else {
-                throw new MergerException("File \"" + fileName + "\" doea not corrospont to standerd naming. Please "
+                throw new MergerException("File \"" + fileName + "\" doeas not correspond to standerd naming. Please "
                     + "check the read me");
             }
         }

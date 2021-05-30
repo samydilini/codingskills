@@ -15,7 +15,9 @@ import java.util.Optional;
 import java.util.stream.Stream;
 
 public class FileReaderServiceTest {
+
     FileReaderService fileReaderService;
+
     @Before
     public void setUp() {
         fileReaderService = FileReaderService.getFileReaderServiceInstance();
@@ -28,16 +30,17 @@ public class FileReaderServiceTest {
 
     @Test
     public void testReadFileFromcorrectPath() throws IOException {
-        final String path = "src/test/resources/suppliersA.csv";
-
+        final String testPath = "src/test/resources";
+        final String path = "/suppliersA.csv";
         final Record record = fileReaderService.readFile(path).get();
-        BufferedReader csvReader = new BufferedReader(new FileReader(path));
+        BufferedReader csvReader = new BufferedReader(new FileReader(testPath + path));
         Stream<String> lines = csvReader.lines();
-        int lineCount = (int)lines.count();
+        int lineCount = (int) lines.count();
         csvReader.close();
         assertEquals(Record.class, record.getClass());
-        assertEquals(lineCount -1, record.getRows().size());
+        assertEquals(lineCount - 1, record.getRows().size());
         assertEquals(record.getHeaders().length, record.getRows().get(0).length);
-        
+
     }
+
 }

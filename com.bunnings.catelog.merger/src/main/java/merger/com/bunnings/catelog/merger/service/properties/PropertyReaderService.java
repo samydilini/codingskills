@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
@@ -15,6 +16,7 @@ import org.apache.commons.lang3.StringUtils;
 import merger.com.bunnings.catelog.merger.exceptins.MergerException;
 
 public class PropertyReaderService {
+
     private static final String PREFIX = ".";
     private static final String COMPANY_AQQUIRED = "company.aqquired";
     public static final String CATELOG = "catalog";
@@ -22,19 +24,20 @@ public class PropertyReaderService {
     public static final String SUPPLIERS = "suppliers";
     private static final Logger LOGGER = Logger.getLogger(PropertyReaderService.class.getName());
     private static final String COMPANY_MOTHER_STR = "company.mother";
-    private static final List<String> MOTHER_COMPANY = Arrays.asList(COMPANY_MOTHER_STR,
-            COMPANY_MOTHER_STR + PREFIX + CATELOG, COMPANY_MOTHER_STR + PREFIX + BARCODES,
-            COMPANY_MOTHER_STR + PREFIX + SUPPLIERS);
-    private static final List<String> AQQUIRED_COMPANY = Arrays.asList(COMPANY_AQQUIRED,
-            COMPANY_AQQUIRED + PREFIX + CATELOG, COMPANY_AQQUIRED + PREFIX + BARCODES,
-            COMPANY_AQQUIRED + PREFIX + SUPPLIERS);
+    private static final List<String> MOTHER_COMPANY = new LinkedList<>(Arrays.asList(COMPANY_MOTHER_STR,
+        COMPANY_MOTHER_STR + PREFIX + CATELOG, COMPANY_MOTHER_STR + PREFIX + BARCODES,
+        COMPANY_MOTHER_STR + PREFIX + SUPPLIERS));
+    private static final List<String> AQQUIRED_COMPANY = new LinkedList<>(Arrays.asList(COMPANY_AQQUIRED,
+        COMPANY_AQQUIRED + PREFIX + CATELOG, COMPANY_AQQUIRED + PREFIX + BARCODES,
+        COMPANY_AQQUIRED + PREFIX + SUPPLIERS));
 
     private static PropertyReaderService propertyReaderService = null;
 
-    private PropertyReaderService(){}
+    private PropertyReaderService() {
+    }
 
-    public static  PropertyReaderService getPropertyReaderServiceInstance() {
-        if(propertyReaderService == null) {
+    public static PropertyReaderService getPropertyReaderServiceInstance() {
+        if (propertyReaderService == null) {
             propertyReaderService = new PropertyReaderService();
         }
         return propertyReaderService;
@@ -54,7 +57,7 @@ public class PropertyReaderService {
     }
 
     private void readCompany(Map<String, List<String>> files, Properties properties, List<String> companyKeys)
-            throws MergerException {
+        throws MergerException {
         String name = companyKeys.remove(0);
         String nameProperty = findProperty(properties, name);
         List<String> companyFiles = new ArrayList<>();

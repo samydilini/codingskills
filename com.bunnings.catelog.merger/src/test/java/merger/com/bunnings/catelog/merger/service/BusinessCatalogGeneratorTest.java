@@ -1,5 +1,6 @@
 package merger.com.bunnings.catelog.merger.service;
 
+import static merger.com.bunnings.catelog.merger.service.BusinessCatalogGenerator.CSV;
 import static merger.com.bunnings.catelog.merger.service.BusinessCatalogGenerator.SRC_MAIN_RESOURCES;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Matchers.any;
@@ -77,11 +78,11 @@ public class BusinessCatalogGeneratorTest {
         catalogRows.add(row2);
         when(catalogRecord.getRows()).thenReturn(catalogRows);
 
-        when(fileReaderService.readFile(SRC_MAIN_RESOURCES + PropertyReaderService.CATELOG + companyName))
+        when(fileReaderService.readFile(SRC_MAIN_RESOURCES + PropertyReaderService.CATELOG + companyName + CSV))
             .thenReturn(Optional.of(catalogRecord));
 
         Record barcodeRecord = Mockito.mock(Record.class);
-        String[] barcodeHeaders = {"SKU", "SupplierID", "BarCode"};
+        String[] barcodeHeaders = {"SKU", "SupplierID", "Barcode"};
         when(barcodeRecord.getHeaders()).thenReturn(barcodeHeaders);
         List<String[]> barcodeRows = new ArrayList<>();
         String[] barRow1 = {"1111", "1", "abcd"};
@@ -92,7 +93,7 @@ public class BusinessCatalogGeneratorTest {
         barcodeRows.add(barRow3);
         when(barcodeRecord.getRows()).thenReturn(barcodeRows);
 
-        when(fileReaderService.readFile(SRC_MAIN_RESOURCES + PropertyReaderService.BARCODES + companyName))
+        when(fileReaderService.readFile(SRC_MAIN_RESOURCES + PropertyReaderService.BARCODES + companyName + CSV))
             .thenReturn(Optional.of(barcodeRecord));
 
         Record supplierRecord = Mockito.mock(Record.class);
@@ -104,11 +105,11 @@ public class BusinessCatalogGeneratorTest {
         String[] supplierRow2 = {"2", "Lill"};
         supplierRows.add(supplierRow2);
         when(supplierRecord.getRows()).thenReturn(supplierRows);
-        when(fileReaderService.readFile(SRC_MAIN_RESOURCES + PropertyReaderService.SUPPLIERS + companyName))
+        when(fileReaderService.readFile(SRC_MAIN_RESOURCES + PropertyReaderService.SUPPLIERS + companyName + CSV))
             .thenReturn(Optional.of(supplierRecord));
 
-        List<String> fileNames = Arrays.asList(PropertyReaderService.CATELOG + companyName,
-            PropertyReaderService.BARCODES + companyName, PropertyReaderService.SUPPLIERS + companyName);
+        List<String> fileNames = Arrays.asList(PropertyReaderService.CATELOG + companyName + CSV,
+            PropertyReaderService.BARCODES + companyName + CSV, PropertyReaderService.SUPPLIERS + companyName + CSV);
         BusinessCatalog businessCatalog = bussinssCatalogGenerator.generateCatelog(companyName, fileNames);
 
         assertEquals(BusinessCatalog.class, businessCatalog.getClass());
