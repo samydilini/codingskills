@@ -1,6 +1,7 @@
 
 Dependency injection can be seen at Services
 classes are doing there own responsibilities
+94% test coverage is achieved 
 
 Assumptions
 only one company will get acquired at one Sometimes
