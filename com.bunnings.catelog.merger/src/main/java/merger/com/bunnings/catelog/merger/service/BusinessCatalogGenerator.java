@@ -169,7 +169,7 @@ public class BusinessCatalogGenerator {
         int skuArrayIndex = 0;
         int descriptionIndex = 0;
         for (int i = 0; i < headers.length; i++) {
-            CatelogHeaders currentHeader = validateCatelogheader(headers[i]);
+            CatelogHeaders currentHeader = validateCatelogHeader(headers[i]);
             switch (currentHeader) {
                 case SKU:
                     skuArrayIndex = i;
@@ -196,7 +196,7 @@ public class BusinessCatalogGenerator {
         throw new MergerException(message);
     }
 
-    private CatelogHeaders validateCatelogheader(String header) throws MergerException {
+    private CatelogHeaders validateCatelogHeader(String header) throws MergerException {
         for (CatelogHeaders catelogHeader : values()) {
             if (catelogHeader.getHeader().equals(header)) {
                 return catelogHeader;
