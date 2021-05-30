@@ -15,7 +15,19 @@ import merger.com.bunnings.catelog.merger.model.Record;
 
 public class FileReaderService {
 
-    private final static Logger LOGGER = Logger.getLogger(FileReaderService.class.getName());
+    private static FileReaderService fileReaderService = null;
+    
+    private FileReaderService() {
+    }
+    
+    public static FileReaderService getFileReaderServiceInstance() {
+        if (fileReaderService == null)
+        {
+            fileReaderService = new FileReaderService();
+        }
+        return fileReaderService;
+    }
+    private static final Logger LOGGER = Logger.getLogger(FileReaderService.class.getName());
 
     public Optional<Record> readFile(String path) {
         try (BufferedReader csvReader = new BufferedReader(new FileReader(path))) {

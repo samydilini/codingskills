@@ -1,6 +1,11 @@
 package merger.com.bunnings.catelog.merger.service.files;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import merger.com.bunnings.catelog.merger.model.Record;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -8,21 +13,20 @@ import java.io.IOException;
 import java.util.Optional;
 import java.util.stream.Stream;
 
-import org.junit.Test;
-
-import merger.com.bunnings.catelog.merger.model.Record;
-
 public class FileReaderServiceTest {
+    FileReaderService fileReaderService;
+    @Before
+    public void setUp() {
+        fileReaderService = FileReaderService.getFileReaderServiceInstance();
+    }
 
     @Test
     public void testReadFileFromWrongPath() {
-        FileReaderService fileReaderService = new FileReaderService();
         assertEquals(Optional.empty(), fileReaderService.readFile("wrongPath"));
     }
 
     @Test
     public void testReadFileFromcorrectPath() throws IOException {
-        FileReaderService fileReaderService = new FileReaderService();
         final String path = "src/test/resources/suppliersA.csv";
 
         final Record record = fileReaderService.readFile(path).get();
